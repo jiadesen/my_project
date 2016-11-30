@@ -91,11 +91,16 @@ img {
     border: 1px solid transparent;
     border-top: none;
     transition: all .4s linear;
+    font-size: 14px;
 }
 
 #header .top-nav .main-nav > li > a:hover {
     color: #3498DB;
     transition: all .3s linear;
+}
+
+#header .top-nav .main-nav > li > a.active {
+    color: #3498DB;
 }
 
 #header .top-nav .main-nav > li > a > span {
