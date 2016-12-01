@@ -1,6 +1,7 @@
 /* *****************************************设置全局样式******************************************* */
 body {
     width: 100%;
+    min-width: 1349px;
     font-family: "microsoft yahei", Arial, sans-serif;
     background: #EFF3F5;
 }

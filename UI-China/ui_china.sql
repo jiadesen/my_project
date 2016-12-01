@@ -1,7 +1,9 @@
 SET NAMES UTF8;
+
 DROP DATABASE IF EXISTS ui_china;
 CREATE DATABASE ui_china CHARSET=UTF8;
 USE ui_china;
+
 # 创建首页推荐表
 CREATE TABLE homepage(
     hid INT PRIMARY KEY AUTO_INCREMENT,

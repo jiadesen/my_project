@@ -6,21 +6,21 @@
     $db_pwd = '';
     $db_name = 'ui_china';
     $db_port = '3306';
-    //新浪云
     //$db_url = SAE_MYSQL_HOST_M;
     //$db_user = SAE_MYSQL_USER;
     //$db_pwd = SAE_MYSQL_PASS;
     //$db_name = SAE_MYSQL_DB;
     //$db_port = SAE_MYSQL_PORT;
     //接收客户端提交的类别
-    $type = $_REQUEST['type'];
+    $key = $_REQUEST['key'];
     $conn = mysqli_connect($db_url,$db_user, $db_pwd, $db_name, $db_port);
     $sql = "SET NAMES UTF8";
     mysqli_query($conn,$sql);
     $arr = [];
-    $sql = "SELECT * FROM $type ORDER BY hid LIMIT 20";
+    $sql = "SELECT * FROM $key ORDER BY hid LIMIT 20";
     $result = mysqli_query($conn,$sql);
     while(($list = mysqli_fetch_assoc($result))!=null){
+
         $arr[] = $list;
     }
     echo json_encode($arr);

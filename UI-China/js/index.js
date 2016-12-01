@@ -1,31 +1,35 @@
-/****************封装ajax*****************/
+//功能点1：页面内容异步加载
+//封装ajax，根据所需分类，异步加载内容
 function getAjax(type) {
     $.ajax({
         url: 'data/ui_china.php',
         data: {'type': type},
         success: function (list, msg, xhr) {
             // console.log('开始处理响应数据');
+            console.log(list);
+            // console.log(msg);
+            // console.log(xhr);
             var html = '';
             $.each(list, function (i, arr) {
                 html += `
-          <dl>
-            <dt><img src="${arr.rec_img}"/></dt>
-            <dd>${arr.rec_con}</dd>
-            <dd>${arr.au_con}</dd>
-            <dd><span><img src="${arr.au_img}"/></span><a href="#">${arr.au_name}</a></dd>
-          </dl>
-          `;
+                      <dl>
+                        <dt><img src="${arr.rec_img}"/></dt>
+                        <dd>${arr.rec_con}</dd>
+                        <dd>${arr.au_con}</dd>
+                        <dd><span><img src="${arr.au_img}"/></span><a href="#">${arr.au_name}</a></dd>
+                      </dl>
+                      `;
             });
             $('.main').html(html);
         }
     })
 }
-//页面第一次加载时的默认显示
+//功能点2：页面第一次加载时的默认显示
 window.onload = function () {
     var type = 'homepage';
     getAjax(type);
 };
-/******************鼠标点击时异步请求对应的数据列表*******************/
+//功能点3：鼠标点击时异步请求对应的数据列表
 $('.column ul li').on("click", "a", function (e) {
     e.preventDefault();
     $(this).parent().addClass('active').siblings('.active').removeClass('active');
@@ -34,7 +38,7 @@ $('.column ul li').on("click", "a", function (e) {
     // console.log(type);
     getAjax(type);
 });
-/* ***********************************模拟轮播效果********************************************** */
+//功能点4：轮播
 var t = n = 0, count;
 $(document).ready(function () {
     count = $("#banner_list a").length;
@@ -43,16 +47,18 @@ $(document).ready(function () {
         var i = $(this).text() - 1;
         n = i;
         if (i >= count) return;
+        //遍历当前可见的图片使其淡出
         $("#banner_list a").filter(":visible").fadeOut(500)
+            //找到选中的图片使其淡入
             .parent().children().eq(i).fadeIn(1000);
         $(this).toggleClass("on");
         $(this).siblings().removeAttr("class");
     });
-    t = setInterval("showAuto()", 4000);
+    t = setInterval("showAuto()", 3000);
     $("#banner").hover(function () {
         clearInterval(t)
     }, function () {
-        t = setInterval("showAuto()", 4000);
+        t = setInterval("showAuto()", 3000);
     })
 });
 
@@ -60,7 +66,7 @@ function showAuto() {
     n = n >= (count - 1) ? 0 : ++n;
     $("#banner li").eq(n).trigger('click');
 }
-/**************************************返回页面顶部******************************************/
+//功能点5：返回页面顶部
 $(function () {
     $(window).scroll(function () {  //只要窗口滚动,就触发下面代码
         var scrollt = document.documentElement.scrollTop + document.body.scrollTop; //获取滚动后的高度
