@@ -1,3 +1,4 @@
+//基于jquery
 //功能点1：页面内容异步加载
 //封装ajax，根据所需分类，异步加载内容
 function loadDataByTypeAndPage(type, pageNum) {
@@ -25,6 +26,7 @@ function loadDataByTypeAndPage(type, pageNum) {
                       `;
             });
             $('.main').html(html);
+
             //根据返回的分页数据，动态创建分页条内容
             var html_page = '';
 
