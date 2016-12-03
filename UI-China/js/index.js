@@ -47,13 +47,23 @@ function loadDataByTypeAndPage(type, pageNum) {
             var last = (pager.pageNum == pager.pageCount) ? `<li>尾页</li>` : `<li><a href="${pager.type}" rel="${pager.pageCount}">尾页</a></li>`;
             var prev = (pager.pageNum == 1) ? `<li>上一页</li>` : `<li><a href="${pager.type}" rel="${pager.pageNum - 1}">上一页</a></li>`;
             var next = (pager.pageNum == pager.pageCount) ? `<li>下一页</li>` : `<li><a href="${pager.type}" rel="${pager.pageNum + 1}">下一页</a></li>`;
-            for (var i = 1, p = ''; i <= pager.pageCount; i++) {
-                if (i == 1) {
-                    p = `<li class="p"><a class="p" href="${pager.type}" rel="${i}">${i}</a></li>`;
-                } else {
-                    p += `<li class="p"><a class="p" href="${pager.type}" rel="${i}">${i}</a></li>`;
-                }
+            // for (var i = 1, p = ''; i <= pager.pageCount; i++) {
+            //     if (i == 1) {
+            //         p = `<li class="p"><a class="p" href="${pager.type}" rel="${i}">${i}</a></li>`;
+            //     } else {
+            //         p += `<li class="p"><a class="p" href="${pager.type}" rel="${i}">${i}</a></li>`;
+            //     }
+            // }
+
+            var p = '';
+            if (pager.pageNum - 1 > 0) {
+                p += `<li class="p"><a  class="p" href="${pager.type}" rel="${pager.pageNum - 1}">${pager.pageNum - 1}</a></li>`;
             }
+            p += `<li class="active p"><a  class="p" href="${pager.type}" rel="${pager.pageNum}">${pager.pageNum}</a></li>`;
+            if (pager.pageNum + 1 > 0 && pager.pageNum < pager.pageCount) {
+                p += `<li class="p"><a  class="p" href="${pager.type}" rel="${pager.pageNum + 1}">${pager.pageNum + 1}</a></li>`;
+            }
+
             html_page = first + prev + p + next + last + str;
             $('.pager').html(html_page);
         }
