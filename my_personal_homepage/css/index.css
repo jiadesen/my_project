@@ -428,12 +428,41 @@ a {
     #contact {
         padding-bottom: 40px;
         border-bottom: 5px solid #ddd;
+        position: relative;
     }
 
     #contact h2 {
         margin: 0;
         padding: 60px 0 40px;
         color: #1F3A93;
+    }
+
+    #btn {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        top: 470px;
+        left: calc(50% - 50px);
+        cursor: pointer;
+    }
+
+    .btn {
+        width: 80px;
+    }
+
+    #ad {
+        width: 360px;
+        height: 240px;
+        background: yellow;
+        position: absolute;
+        top: 200px;
+        left: calc(50% - 180px);
+        display: block;
+    }
+
+    #ad img {
+        border: 5px solid #000;
+        border-radius: 5px;
     }
 
     /********************************** copy样式 **********************************/

@@ -57,6 +57,31 @@ $("#nav li a").click(function (e) {
         left: x + 'px'
     }).addClass("rippleEffect");
 });
+//h5 video控件
+btn.onclick = function () {
+    // console.log(v1.paused);
+    if (v1.paused) {
+        v1.play();
+        this.innerHTML = "<img class='btn' src='img/pause.png' title='点击暂停'>";
+        ad.style.display = "none"
+    } else {
+        v1.pause();
+        this.innerHTML = "<img class='btn' src='img/play.png' title='点击播放'/>";
+        ad.style.display = "block"
+    }
+};
+var container = document.querySelector(".container");
+container.onmouseenter = function () {
+    btn.style.display = "block";
+};
+container.onmouseleave = function () {
+    btn.style.display = "none";
+};
+v1.addEventListener('ended', function () {
+    btn.innerHTML = "<img class='btn' src='img/play.png' title='点击重新播放'/>";
+});
+
+
 
 
 
