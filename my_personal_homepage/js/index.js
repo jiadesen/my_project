@@ -80,6 +80,15 @@ container.onmouseleave = function () {
 v1.addEventListener('ended', function () {
     btn.innerHTML = "<img class='btn' src='img/play.png' title='点击重新播放'/>";
 });
+v1.onplay = function () {
+    // console.log("开始播放");
+    ad.style.display = "none";
+};
+v1.onpause = function () {
+    // console.log("播放暂停");
+    ad.style.display = "block";
+};
+
 
 
 
