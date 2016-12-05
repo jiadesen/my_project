@@ -4,6 +4,14 @@
 
 上线地址：http://loveayu.applinzi.com/
 
+# 开发环境
+    
+    windows 10 专业版 x64
+    
+    Webstorm 2016.2.3(64)
+    
+    Phpstorm 2016.3(64)
+
 # About
 ### 主要内容
 - 融入了个人设计，简洁，扁平化
