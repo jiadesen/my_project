@@ -1,9 +1,11 @@
 # My_personal_homepage
 
-# 日志
-
 我的个人主页，项目建于16年11月初，目的是为自己的多个前端项目建立一个统一入口，后期会不断维护这个项目
 
 # About
 
-
+- 基于CSS3 Media Query技术的响应式网页，兼容了PC端和手机端，主流高分辨率平板隶属于PC端
+- `JS`锚点滑动跳转
+- `JS`PC下点击菜单水波纹特效
+- `JS`H5 video控件
+- `JS`nivo-slider轮播特效
