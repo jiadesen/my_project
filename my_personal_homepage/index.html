@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
     <title>我的主页</title>
-    <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/nivo-slider.css">
 </head>
 <body>
 <div id="container">
@@ -19,7 +20,6 @@
             </div>
             <div class="profile-content animated fadeInLeft">
                 <h2>贾 德 森</h2>
-
                 <p>专注于WEB前端开发</p>
             </div>
         </div>
@@ -45,36 +45,39 @@
             <div class="bg"></div>
             <div class="welcome-text animated zoomIn">
                 <h1>Welcome | Simple Design</h1>
-
                 <p>欢迎来到我的主页！这是一个完全基于CSS3 Media Query技术的响应式网页，您可以在手机端和PC端愉快的浏览。</p>
             </div>
         </div>
         <div class="main-part">
             <div id="about" class="a2">
                 <h2>ABOUT ME</h2>
-
-                <div class="about-img">
-                    <img src="img/about.jpg" alt="about me">
+                <div class="slider-wrapper">
+                    <div id="slider" class="about-img nivoSlider">
+                        <img src="img/banner/01.jpg" alt="about me">
+                        <img src="img/banner/02.jpg" alt="about me">
+                        <img src="img/banner/03.jpg" alt="about me">
+                        <img src="img/banner/04.jpg" alt="about me">
+                        <img src="img/banner/05.jpg" alt="about me">
+                        <img src="img/banner/06.jpg" alt="about me">
+                    </div>
+                    <!--<div class="nivo-controlNav-bg"></div>-->
                 </div>
                 <div class="about-text">
-                    <p>&#x3000;&#x3000;一段简单介绍自己的话一段简单介绍自己的话一段简单介绍自己的话一段简单介绍自己的话一段简单介绍自己的话一段简单介绍自己的话一段简单介绍自己的话一段简单介绍自己的话一段简单介绍自己的话一段简单介绍自己的话</p>
+                    <p>&#x3000;&#x3000;离开大学，也终于离开了最美好，最任性的时光。时光一去不复返，我没有选择按部就班的就业，而是选择了一个自己所喜欢的领域，虽然通宵达旦的学习很累，但也有因为实现了一个功能而睡觉都在微笑...年轻就要奔跑，未来在自己手里，我在努力走向自己想要的样子。</p>
                 </div>
             </div>
             <div id="project" class="a3">
                 <h2>PROJECT</h2>
-
                 <p>&#x3000;&#x3000;每个项目的源码都托管在GitHub上，包括项目的详细介绍，项目上线地址，个人总结，以及我在开发中遇到的奇葩问题等等。
-                    不过项目总体分类非常明确。项目一：早期作品，练手用啦，后期也加入了AJAX等；项目二：实现基本功能的电商全站，没有考虑太多的视觉因素，
-                    侧重于前后台数据交互，后台搭建和前台实现；项目三：CSS3 Media Query响应式。<span style="color: #999;">( 注：点击项目名称进行线上访问，点击GitHub图标查看源码 )</span></p>
-
+                    不过项目总体分类非常明确。项目一：早期作品，使用了语义化更强的结构标记，后期也加入了AJAX等；项目二：实现基本功能的电商全站，没有考虑太多的视觉因素，
+                    侧重于熟悉前后台数据交互，学习后台搭建和自主的前台实现；项目三：CSS3 Media Query响应式。<span style="color: #999;">( 注：点击项目名称进行线上访问，点击GitHub图标查看源码 )</span>
+                </p>
                 <div class="img-box">
                     <div>
                         <img src="img/1.jpg">
-
                         <div class="project-hover">
                             <div class="inside">
                                 <h5><a href="http://uichina.applinzi.com" target="_blank">项目一：UI-China首页</a></h5>
-
                                 <p>主要内容：结构标记整体布局，图片轮播和返回顶部功能，内容异步加载。源码：<a
                                     style="display: inline;color: #FC7D48;"
                                     href="https://github.com/jiadesen/my_project/tree/master/UI-China"
@@ -84,25 +87,21 @@
                     </div>
                     <div>
                         <img src="img/2.jpg">
-
                         <div class="project-hover">
                             <div class="inside">
                                 <h5><a href="http://dsdemo.applinzi.com/" target="_blank">项目二：商城示例</a></h5>
-
                                 <p>此个人项目立项要求较高，为商城主要功能的全站开发，完整描述和进度点击：<a style="display: inline;color: #FC7D48;"
-                                                                        href="https://github.com/jiadesen/ds_demo"
-                                                                        target="_blank"><span
+                                                                         href="https://github.com/jiadesen/ds_demo"
+                                                                         target="_blank"><span
                                     class="icon-github"></span></a></p>
                             </div>
                         </div>
                     </div>
                     <div>
                         <img src="img/3.jpg">
-
                         <div class="project-hover">
                             <div class="inside">
                                 <h5><a href="javascript:">项目三：我的主页</a></h5>
-
                                 <p>项目融入了个人设计，扁平化，基于CSS3 Media Query技术的响应式网页，源码：<a
                                     style="display: inline;color: #FC7D48;"
                                     href="https://github.com/jiadesen/my_project/tree/master/my_personal_homepage"
@@ -112,33 +111,27 @@
                     </div>
                     <div>
                         <img src="img/4.jpg">
-
                         <div class="project-hover">
                             <div class="inside">
                                 <h5><a href="#">项目四</a></h5>
-
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus</p>
                             </div>
                         </div>
                     </div>
                     <div>
                         <img src="img/5.jpg">
-
                         <div class="project-hover">
                             <div class="inside">
                                 <h5><a href="#">项目五</a></h5>
-
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus</p>
                             </div>
                         </div>
                     </div>
                     <div>
                         <img src="img/6.jpg">
-
                         <div class="project-hover">
                             <div class="inside">
                                 <h5><a href="#">项目六</a></h5>
-
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus</p>
                             </div>
                         </div>
@@ -164,6 +157,7 @@
     </div>
 </div>
 <script src="js/jquery-1.11.3.min.js"></script>
-<script src="js/index.js"></script>
+<script src="js/jquery.nivo.slider.min.js"></script>
+<script src="js/index.min.js"></script>
 </body>
 </html><!--

@@ -18,6 +18,7 @@ $(document).ready(function () {
         $(this).addClass("bg");
     });
 });
+
 //判断锚点是否激活并为按钮添加点击样式
 $(function () {
     $(window).scroll(function () {
@@ -31,10 +32,12 @@ $(function () {
         }
     });
 });
+
 //手机屏幕下点击触发下拉菜单
 $(".btn-bar").click(function () {
     $("#nav").slideToggle();
 });
+
 //pc下点击菜单水波纹特效
 $("#nav li a").click(function (e) {
     $(".ripple").remove();
@@ -57,6 +60,7 @@ $("#nav li a").click(function (e) {
         left: x + 'px'
     }).addClass("rippleEffect");
 });
+
 //h5 video控件
 btn.onclick = function () {
     // console.log(v1.paused);
@@ -89,16 +93,15 @@ v1.onpause = function () {
     ad.style.display = "block";
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// nivo-slider轮播特效
+// $('#slider').nivoSlider({
+//     effect: 'random', //效果
+//     slices: 15, //切片效果时的数量
+//     boxCols: 8, //格子效果列
+//     animSpeed: 500, //动画速度
+//     pauseTime: 3000, //暂停时间
+//     directionNav: false, //不使用左右导航
+// });
+$(window).load(function () {
+    $('#slider').nivoSlider({});
+});
