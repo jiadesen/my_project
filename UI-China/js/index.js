@@ -2,6 +2,7 @@
 //功能点1：页面内容异步加载
 //封装ajax，根据所需分类，异步加载内容
 function loadDataByTypeAndPage(type, pageNum) {
+    // $.ajaxSetup({cache: false}); //禁止缓存
     $.ajax({
         url: 'data/ui_china.php',
         data: {
@@ -81,7 +82,11 @@ window.onload = function () {
 
 //功能点3：鼠标点击分类时异步请求对应的数据列表
 $('.column ul li').on("click", "a", function (e) {
-    e.preventDefault();
+    if (e && e.preventDefault) {
+        e.preventDefault();
+    } else {
+        window.event.returnValue = false; //阻止IE浏览器默认跳转
+    }
     $(this).parent().addClass('active').siblings('.active').removeClass('active');
     //异步请求当前类别下的列表
     var type = $(this).attr('href');
@@ -93,7 +98,11 @@ $('.column ul li').on("click", "a", function (e) {
 
 //功能点4：鼠标点击页码时异步请求对应的数据
 $('.page').on("click", "a", function (e) {
-    e.preventDefault();
+    if (e && e.preventDefault) {
+        e.preventDefault();
+    } else {
+        window.event.returnValue = false; //阻止IE浏览器默认跳转
+    }
     // $(this).parent().addClass('active').siblings('.active').removeClass('active');
     //异步请求当前类别下对应页码的列表
     var type = $(this).attr('href');

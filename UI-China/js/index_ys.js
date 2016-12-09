@@ -1,17 +1,22 @@
 //原生js
 //功能点1：页面内容异步加载
 function loadDataByTypeAndPage(type, pageNum) {
-    var xhr = new XMLHttpRequest();
+    if (window.ActiveXObject) {
+        var xhr = new ActiveXObject("Microsoft.XMLHTTP"); //IE5 和 IE6
+    } else if (window.XMLHttpRequest) {
+        var xhr = new XMLHttpRequest(); //IE7+
+    }
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
+                // console.log('响应完成且成功');
                 doResponse(xhr);
             } else {
                 console.log('响应完成但有问题');
             }
         }
     };
-    xhr.open('GET', 'data/ui_china.php?type=' + type + '&pageNum=' + pageNum, true);
+    xhr.open('GET', 'data/ui_china.php?type=' + type + '&pageNum=' + pageNum + '&timeTmp=' + new Date().getTime(), true); //追加随机时间阻止缓存
     xhr.send(null);
     function doResponse(xhr) {
         // console.log(xhr);

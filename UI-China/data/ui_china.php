@@ -42,7 +42,7 @@ $pager['pageCount'] = ceil(($pager['recorderCount']) / ($pager['pageSize']));
 
 //获取当前指定页中的记录
 $start = ($pager['pageNum'] - 1) * $pager['pageSize']; //从哪一行开始获取数据
-$count = $pager['pageSize']; //读取多上行
+$count = $pager['pageSize']; //读取多少行
 $sql = "SELECT * FROM $type LIMIT $start,$count";
 $result = mysqli_query($conn, $sql);
 
