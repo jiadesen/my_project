@@ -2,11 +2,21 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/js/respond.min.js" />
+        <item url="file://$PROJECT_DIR$/js/html5media.min.js" />
         <item url="file://$PROJECT_DIR$/js/index.min.js" />
+        <item url="file://$PROJECT_DIR$/js/jquery.nivo.slider.min.js" />
+        <item url="file://$PROJECT_DIR$/js/html5shiv.min.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
+      <root url="file://$PROJECT_DIR$/js/jquery.nivo.slider.pack.min.js" />
+      <root url="file://$PROJECT_DIR$/js/jquery.nivo.slider.pack.min.js" />
+      <root url="file://$PROJECT_DIR$/js/respond.min.js" />
+      <root url="file://$PROJECT_DIR$/js/html5media.min.js" />
       <root url="file://$PROJECT_DIR$/js/index.min.js" />
+      <root url="file://$PROJECT_DIR$/js/jquery.nivo.slider.min.js" />
+      <root url="file://$PROJECT_DIR$/js/html5shiv.min.js" />
     </CLASSES>
     <SOURCES />
   </library>
