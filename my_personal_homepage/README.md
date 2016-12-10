@@ -22,3 +22,4 @@
 - `JS`PC下点击菜单水波纹特效
 - `JS`H5 video控件
 - `JS`nivo-slider轮播特效
+- `维护`引入`html5shiv.js`,`respond.js`,`html5media.js`和设置一个新的`meta`标签尝试做出一些兼容IE8的改变(实际效果兼容性很有限...)
