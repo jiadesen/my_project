@@ -24,69 +24,70 @@ function loadDataByTypeAndPage(type, pageNum) {
         pager = JSON.parse(pager);
         // console.log(pager);
 
-        //对应方法一：小撇号字符串使用
+        //对应方法一和方法三：小撇号字符串和普通字符串拼接使用(IE11不兼容小撇号字符串)
         var html = '';
-        //对应方法二：创建文档片段，对应原生DOM操作
-        var frag_last = document.createDocumentFragment();
+        //对应方法二：创建文档片段，对应原生DOM操作(弃用，改为普通的字符串拼接)
+        // var frag_last = document.createDocumentFragment();
 
         for (var i = 0; i < pager.data.length; i++) {
             // 方法一：使用小撇号字符串
-            html += `
-                  <dl>
-                    <dt><img src="${pager.data[i].rec_img}"/></dt>
-                    <dd>${pager.data[i].rec_con}</dd>
-                    <dd>${pager.data[i].au_con}</dd>
-                    <dd><span><img src="${pager.data[i].au_img}"/></span><a href="#">${pager.data[i].au_name}</a></dd>
-                  </dl>
-                  `;
+            // html += `
+            //       <dl>
+            //         <dt><img src="${pager.data[i].rec_img}"/></dt>
+            //         <dd>${pager.data[i].rec_con}</dd>
+            //         <dd>${pager.data[i].au_con}</dd>
+            //         <dd><span><img src="${pager.data[i].au_img}"/></span><a href="#">${pager.data[i].au_name}</a></dd>
+            //       </dl>
+            //       `;
 
-            //方法二：原生DOM操作
+            //方法二：原生DOM操作(BUG弃用，改为普通的字符串拼接)
             //创建dl
-            var dl = document.createElement('dl');
-            //创建文档片段
-            var frag = document.createDocumentFragment();
-            //创建dt
-            var dt = document.createElement('dt');
-            //创建rec_img
-            var rec_img = new Image;
-            rec_img.src = pager.data[i].rec_img;
-            //将rec_img追加到dt下
-            dt.appendChild(rec_img);
-            //将dt追加到文档片段中
-            frag.appendChild(dt);
-            //创建rec_con
-            var rec_con = document.createElement('dd');
-            rec_con.innerHTML = pager.data[i].rec_con;
-            frag.appendChild(rec_con);
-            //创建au_con
-            var au_con = document.createElement('dd');
-            au_con.innerHTML = pager.data[i].au_con;
-            frag.appendChild(au_con);
-            //创建dd_last
-            var dd_last = document.createElement('dd');
-            var span = document.createElement('span');
-            var au_img = new Image;
-            au_img.src = pager.data[i].au_img;
-            span.appendChild(au_img);
-            dd_last.appendChild(span);
-            //创建a
-            var a = document.createElement('a');
-            a.href = '#';
-            a.innerHTML = pager.data[i].au_name;
-            dd_last.appendChild(a);
-            frag.appendChild(dd_last);
-            //将追加完成的frag追加到dl中
-            dl.appendChild(frag);
-            //拼接
-            frag_last.appendChild(dl);
+            // var dl = document.createElement('dl');
+            // //创建dt
+            // var dt = document.createElement('dt');
+            // var rec_img = new Image; //创建rec_img
+            // rec_img.src = pager.data[i].rec_img;
+            // //将rec_img追加到dt下
+            // dt.appendChild(rec_img);
+            // //将dt追加到dl中
+            // dl.appendChild(dt);
+            // //创建rec_con
+            // var rec_con = document.createElement('dd');
+            // rec_con.innerHTML = pager.data[i].rec_con;
+            // dl.appendChild(rec_con);
+            // //创建au_con
+            // var au_con = document.createElement('dd');
+            // au_con.innerHTML = pager.data[i].au_con;
+            // dl.appendChild(au_con);
+            // //创建dd_last
+            // var dd_last = document.createElement('dd');
+            // var span = document.createElement('span');
+            // var au_img = new Image;
+            // au_img.src = pager.data[i].au_img;
+            // span.appendChild(au_img);
+            // dd_last.appendChild(span);
+            // var a = document.createElement('a'); //创建a
+            // a.href = '#';
+            // a.innerHTML = pager.data[i].au_name;
+            // dd_last.appendChild(a);
+            // dl.appendChild(dd_last);
+            // // console.log(dl);
+            // //拼接
+            // // frag_last.appendChild(dl);
+            // frag_last += dl;
+            // console.log(frag_last);
+
+            //方法三：普通字符串拼接
+            html += '<dl><dt><img src="' + pager.data[i].rec_img + '"/></dt><dd>' + pager.data[i].rec_con + '</dd><dd>' + pager.data[i].au_con + '</dd><dd><span><img src="' + pager.data[i].au_img + '"/></span><a href="#">' + pager.data[i].au_name + '</a></dd></dl>';
         }
+
         //方法一：小撇号字符串向页面写入内容：
         // document.getElementById('main').firstElementChild.innerHTML = html;
-        document.getElementById('main_list').innerHTML = html;
-        // main_list.innerHTML = html;
+        // document.getElementById('main_list').innerHTML = html;
+        main_list.innerHTML = html;
         //方法二：原生DOM向页面追加内容：
         //使用方法二的一个奇怪BUG:点击分类按钮页面数据不更新，但是查看Network所有的数据请求都正确！mdzz...
-        // document.getElementsByClassName('main')[0].appendChild(frag_last);
+        // document.getElementsByClassName('main')[0].appendChild(fra6g_last);
         // document.getElementById('main_list').appendChild(frag_last);
 
         //测试拿到的元素
@@ -95,21 +96,41 @@ function loadDataByTypeAndPage(type, pageNum) {
 
         //根据返回的分页数据，动态创建分页条内容
         var html_page = '';
-        var str = `<li>共${pager.pageCount}页/当前是第${pager.pageNum}页</li>`;
-        var first = (pager.pageNum == 1) ? `<li>首页</li>` : `<li><a href="${pager.type}" rel="1">首页</a></li>`;
-        var last = (pager.pageNum == pager.pageCount) ? `<li>尾页</li>` : `<li><a href="${pager.type}" rel="${pager.pageCount}">尾页</a></li>`;
-        var prev = (pager.pageNum == 1) ? `<li>上一页</li>` : `<li><a href="${pager.type}" rel="${pager.pageNum - 1}">上一页</a></li>`;
-        var next = (pager.pageNum == pager.pageCount) ? `<li>下一页</li>` : `<li><a href="${pager.type}" rel="${pager.pageNum + 1}">下一页</a></li>`;
+
+        //方法一：使用小撇号字符串
+        // var str = `<li>共${pager.pageCount}页/当前是第${pager.pageNum}页</li>`;
+        // var first = (pager.pageNum == 1) ? `<li>首页</li>` : `<li><a href="${pager.type}" rel="1">首页</a></li>`;
+        // var last = (pager.pageNum == pager.pageCount) ? `<li>尾页</li>` : `<li><a href="${pager.type}" rel="${pager.pageCount}">尾页</a></li>`;
+        // var prev = (pager.pageNum == 1) ? `<li>上一页</li>` : `<li><a href="${pager.type}" rel="${pager.pageNum - 1}">上一页</a></li>`;
+        // var next = (pager.pageNum == pager.pageCount) ? `<li>下一页</li>` : `<li><a href="${pager.type}" rel="${pager.pageNum + 1}">下一页</a></li>`;
+        // var p = '';
+        // if (pager.pageNum - 1 > 0) {
+        //     p += `<li class="p"><a  class="p" href="${pager.type}" rel="${pager.pageNum - 1}">${pager.pageNum - 1}</a></li>`;
+        // }
+        //
+        // p += `<li class="active p"><a  class="p" href="${pager.type}" rel="${pager.pageNum}">${pager.pageNum}</a></li>`;
+        //
+        // if (pager.pageNum + 1 > 0 && pager.pageNum < pager.pageCount) {
+        //     p += `<li class="p"><a  class="p" href="${pager.type}" rel="${pager.pageNum + 1}">${pager.pageNum + 1}</a></li>`;
+        // }
+
+        //方法二：使用普通字符串拼接(兼容IE11 ==、)
+        var str = '<li>共' + pager.pageCount + '页/当前是第' + pager.pageNum + '页</li>';
+        var first = (pager.pageNum == 1) ? '<li>首页</li>' : '<li><a href="' + pager.type + '" rel="1">首页</a></li>';
+        var last = (pager.pageNum == pager.pageCount) ? '<li>尾页</li>' : '<li><a href="' + pager.type + '" rel="' + pager.pageCount + '">尾页</a></li>';
+        var prev = (pager.pageNum == 1) ? '<li>上一页</li>' : '<li><a href="' + pager.type + '" rel="' + (pager.pageNum - 1) + '">上一页</a></li>';
+        var next = (pager.pageNum == pager.pageCount) ? '<li>下一页</li>' : '<li><a href="' + pager.type + '" rel="' + (pager.pageNum + 1) + '">下一页</a></li>';
         var p = '';
         if (pager.pageNum - 1 > 0) {
-            p += `<li class="p"><a  class="p" href="${pager.type}" rel="${pager.pageNum - 1}">${pager.pageNum - 1}</a></li>`;
+            p += '<li class="p"><a  class="p" href="' + pager.type + '" rel="' + (pager.pageNum - 1) + '">' + (pager.pageNum - 1) + '</a></li>';
         }
 
-        p += `<li class="active p"><a  class="p" href="${pager.type}" rel="${pager.pageNum}">${pager.pageNum}</a></li>`;
+        p += '<li class="active p"><a  class="p" href="' + pager.type + '" rel="' + pager.pageNum + '">' + pager.pageNum + '</a></li>';
 
         if (pager.pageNum + 1 > 0 && pager.pageNum < pager.pageCount) {
-            p += `<li class="p"><a  class="p" href="${pager.type}" rel="${pager.pageNum + 1}">${pager.pageNum + 1}</a></li>`;
+            p += '<li class="p"><a  class="p" href="' + pager.type + '" rel="' + (pager.pageNum + 1) + '">' + (pager.pageNum + 1) + '</a></li>';
         }
+
         //拼接
         html_page = first + prev + p + next + last + str;
         document.getElementsByClassName('pager')[0].innerHTML = html_page;
@@ -155,7 +176,7 @@ for (var i = 0; i < type_a.length; i++) {
             // var pageNum = this.attributes.rel.value;
             var pageNum = this.getAttribute('rel');
             // console.log(pageNum);
-            loadDataByTypeAndPage(type, pageNum)
+            loadDataByTypeAndPage(type, pageNum);
         }
     };
     a(i);
