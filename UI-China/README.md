@@ -42,3 +42,5 @@
 - `注`：IE11不支持ECMAScript6中的小撇号字符串
 
 - `维护`：hack引入`html5shiv.js`,`respond.js`尝试做出一些兼容IE8的改变...
+
+- `2016/12/12`修复遗留BUG，兼容性更好！
