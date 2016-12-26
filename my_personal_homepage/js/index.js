@@ -87,10 +87,12 @@ v1.addEventListener('ended', function () {
 v1.onplay = function () {
     // console.log("开始播放");
     ad.style.display = "none";
+    btn.style.display = "none"
 };
 v1.onpause = function () {
     // console.log("播放暂停");
     ad.style.display = "block";
+    btn.style.display = "block";
 };
 
 // nivo-slider轮播特效
