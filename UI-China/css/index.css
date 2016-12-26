@@ -57,11 +57,13 @@ img {
     margin: 13px 0 13px 10px;
     background: url(../img/logo_1.png) no-repeat;
     float: left;
+    -webkit-transition: all .5s linear;
     transition: all .5s linear;
 }
 
 #header .top-nav .logo:hover {
     background: url(../img/logo_2.png) no-repeat;
+    -webkit-transition: background .3s linear;
     transition: background .3s linear;
 }
 
@@ -78,12 +80,14 @@ img {
     height: 66px;
     border-top: 4px solid transparent;
     float: left;
+    -webkit-transition: all .4s linear;
     transition: all .4s linear;
 }
 
 #header .top-nav .main-nav > li:hover {
     box-shadow: 0 0 2px #ddd;
     border-top: 4px solid #3498DB;
+    -webkit-transition: all .3s linear;
     transition: all .3s linear;
 }
 
@@ -95,12 +99,14 @@ img {
     cursor: pointer;
     border: 1px solid transparent;
     border-top: none;
+    -webkit-transition: all .4s linear;
     transition: all .4s linear;
     font-size: 14px;
 }
 
 #header .top-nav .main-nav > li > a:hover {
     color: #3498DB;
+    -webkit-transition: all .3s linear;
     transition: all .3s linear;
 }
 
@@ -126,6 +132,7 @@ img {
     color: #7A8E9D;
     font-size: 14px;
     background: #fff;
+    -webkit-transition: all .4s linear;
     transition: all .4s linear;
 }
 
@@ -142,6 +149,7 @@ img {
 
 #header .top-nav .main-nav .sub:hover .sub-nav {
     display: block;
+    -webkit-transition: all 1s linear;
     transition: all 1s linear;
 }
 
@@ -154,6 +162,7 @@ img {
     margin-left: 20px;
     font-size: 14px;
     color: #3498DB;
+    -webkit-transition: all .4s linear;
     transition: all .4s linear;
 }
 
@@ -170,6 +179,7 @@ img {
 #header .top-nav .login:hover {
     border-top: 4px solid #3498DB;
     background: #EFF3F5;
+    -webkit-transition: background .3s linear;
     transition: background .3s linear;
 }
 
@@ -182,11 +192,13 @@ img {
     margin-top: 23px;
     background: url(../img/search_1.png);
     cursor: pointer;
+    -webkit-transition: all .4s linear;
     transition: all .4s linear;
 }
 
 #header .top-nav span.search:hover {
     background: url(../img/search_2.png);
+    -webkit-transition: all .3s linear;
     transition: all .3s linear;
 }
 
@@ -254,6 +266,7 @@ div.column {
     line-height: 38px;
     color: #7C7C7C;
     font-size: 15px;
+    -webkit-transition: all .4s linear;
     transition: all .4s linear;
 }
 
@@ -267,6 +280,7 @@ div.column {
 
 .column ul li a:hover {
     color: #3498DB;
+    -webkit-transition: color .3s linear;
     transition: color .3s linear;
 }
 
@@ -294,8 +308,12 @@ div.column {
 
 #main .page ol li a {
     height: 40px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     color: #BEC4C8;
     font-size: 16px;
     font-weight: bold;
@@ -306,13 +324,18 @@ div.column {
     width: 25px;
     border-radius: 20px;
     padding-left: 15px;
+    -webkit-transition: all .3s linear;
     transition: all .3s linear;
 }
 
 #main .page ol li {
     height: 38px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin: 0 10px;
     color: #BEC4C8;
 }
@@ -322,11 +345,13 @@ div.column {
     height: 38px;
     border: 1px solid #BEC4C8;
     border-radius: 20px;
+    -webkit-transition: all .3s linear;
     transition: all .3s linear;
 }
 
 #main .page ol li.p:hover {
     border: 1px solid #304152;
+    -webkit-transition: all .3s linear;
     transition: all .3s linear;
 }
 
@@ -363,11 +388,13 @@ div.column {
     margin-left: 12px;
     border-bottom: 1px solid #ccc;
     padding: 10px;
+    -webkit-transition: all .5s linear;
     transition: all .5s linear;
 }
 
 #main div dl:hover {
     background-color: #fff;
+    -webkit-transition: background-color .3s linear;
     transition: background-color .3s linear;
     box-shadow: 0 0 3px #ddd;
 }
@@ -382,12 +409,15 @@ div.column {
     width: 260px;
     height: 190px;
     cursor: pointer;
+    -webkit-transition: all .5s;
     transition: all .5s;
 }
 
 #main div dl dt img:hover {
-    transform-origin: center center;
-    transform: scale(1.1, 1.1);
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-transform: scale(1.1, 1.1);
+            transform: scale(1.1, 1.1);
 }
 
 #main div dl dd {
@@ -431,11 +461,13 @@ div.column {
 
 #main div dl dd a {
     color: #7C7C7C;
+    -webkit-transition: color .4s linear;
     transition: color .4s linear;
 }
 
 #main div dl dd a:hover {
     color: #3498DB;
+    -webkit-transition: color .3s linear;
     transition: color .3s linear;
 }
 
@@ -510,11 +542,13 @@ div.column {
 #partner p a {
     padding-right: 25px;
     margin-top: 25px;
+    -webkit-transition: all .4s linear;
     transition: all .4s linear;
 }
 
 #partner p a:hover {
     color: #3498DB;
+    -webkit-transition: color .2s linear;
     transition: color .2s linear;
 }
 
@@ -552,11 +586,13 @@ div.column {
     margin-right: 30px;
     font-size: 13px;
     color: #7F8C8D;
+    -webkit-transition: all .3s linear;
     transition: all .3s linear;
 }
 
 #copyright div p a:hover {
     color: #3498DB;
+    -webkit-transition: color .2s linear;
     transition: color .2s linear;
 }
 
