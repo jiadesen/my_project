@@ -101,14 +101,23 @@ a {
 }
 
 #project .project-hover p span.icon-github {
-    font-family: 'FontAwesome';
-    font-size: 1.3em;
     position: relative;
     top: 4px;
+    font-family: 'FontAwesome';
+    font-size: 1.3em;
+    color: #FC7D48;
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
 }
 
 #project .project-hover p span.icon-github:before {
     content: '\f09b';
+}
+
+#project .project-hover p a:hover .icon-github {
+    color: #25A5EE;
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
 }
 
 /****************************** 动画 *************************************/
@@ -129,7 +138,7 @@ a {
     /************************** #sidebar 样式 *****************************/
     #sidebar {
         width: 23%;
-        max-width: 440px;
+        /*max-width: 440px;*/
         height: 100%;
         position: fixed;
     }
@@ -276,7 +285,7 @@ a {
         height: 730px;
         overflow: hidden;
         background: url('../img/bg.jpg') no-repeat;
-        background-position: center;
+        /*background-position: center;*/
         background-size: cover;
         /*-moz-filter: blur(2px);*/
         /*-webkit-filter: blur(2px);*/
